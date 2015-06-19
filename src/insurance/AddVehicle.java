@@ -143,7 +143,7 @@ public class AddVehicle extends JFrame {
 		    			 model.addItem("7 series");
 		    		 }
 		    		 else{
-		    			 
+		    			 clearcombo(model);
 		    		 }
 		    	}
 		    });

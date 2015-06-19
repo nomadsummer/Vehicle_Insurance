@@ -193,11 +193,37 @@ public class AddVehicle extends JFrame {
 			
 			JButton addVehicle = new JButton("Add this vehicle");
 			addVehicle.addActionListener(new ActionListener(){
-
 				//@Override
 				public void actionPerformed(ActionEvent e) {
 					AddVehicle addVehicle = new AddVehicle();
-					AddVehicle.this.setVisible(true);
+					//AddVehicle.this.setVisible(true);
+					System.out.println(year.getSelectedItem());
+					System.out.println(make.getSelectedItem());
+                                        System.out.println(model.getSelectedItem());
+                                        
+					try {
+						PrintWriter writer;
+						writer = new PrintWriter("file.txt", "UTF-8");
+						writer.print(year.getSelectedItem()+" "+make.getSelectedItem()+" "+model.getSelectedItem()+" "+bodyStyle.getSelectedItem());
+	                                        writer.close();
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (UnsupportedEncodingException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					try {
+						FileWriter filewriter=new FileWriter("file1.txt",true);
+						filewriter.write(year.getSelectedItem()+" "+make.getSelectedItem()+" "+model.getSelectedItem()+" "+bodyStyle.getSelectedItem());
+						filewriter.write(System.lineSeparator());
+						filewriter.close();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                    
+					addVehicle.setVisible(true);
 					
 				}
 				

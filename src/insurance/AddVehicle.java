@@ -1,11 +1,17 @@
 package insurance;
 
-
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,7 +28,7 @@ import javax.swing.JComboBox;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
-
+import java.lang.*;
 
 
 public class AddVehicle extends JFrame {
@@ -117,18 +123,33 @@ public class AddVehicle extends JFrame {
 			make.addItem("Mazda");
 			make.addItem("Mercedes-Benz");		
 			make.addItem("Nissan");		
-			make.addItem("Toyota");
-			
+			make.addItem("Toyota");		
 		    contentPane.add(make);
 		    
-		    
-		    
 		    model=new JComboBox <String>();
-		    model.setBounds(280, 180, 180, 100);
-		    model.addItem("2015");
-		    model.addItem("2014");
-		    model.addItem("2013");
+			model.setBounds(280, 180, 180, 100);
+		    make.addItemListener(new ItemListener(){
+		    	public void itemStateChanged(ItemEvent ie){
+		    		 if(ie.getItem().equals("Acura")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("ILX");
+		    			 model.addItem("TLX");
+		    			 model.addItem("RLX");
+		    		 }
+		    		 else if(ie.getItem().equals("BMW")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("3 series");
+		    			 model.addItem("5 series");
+		    			 model.addItem("7 series");
+		    		 }
+		    		 else{
+		    			 
+		    		 }
+		    	}
+		    });
 		    contentPane.add(model);
+		    
+		    
 		    
 		    
 		    bodyStyle=new JComboBox <String>();
@@ -173,7 +194,7 @@ public class AddVehicle extends JFrame {
 			JButton addVehicle = new JButton("Add this vehicle");
 			addVehicle.addActionListener(new ActionListener(){
 
-				@Override
+				//@Override
 				public void actionPerformed(ActionEvent e) {
 					AddVehicle addVehicle = new AddVehicle();
 					AddVehicle.this.setVisible(true);
@@ -202,7 +223,7 @@ public class AddVehicle extends JFrame {
 			cancel.setBounds(300, 380, 117, 29);
 			cancel.addActionListener(new ActionListener(){
 
-				@Override
+				//@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
 					AddVehicle.this.setVisible(false);
@@ -219,7 +240,12 @@ public class AddVehicle extends JFrame {
 			imgLabe2.setBounds(0, 0, 500, 95);
 			
 			contentPane.add(imgLabe2);
-
+		}
+		public void clearcombo(JComboBox model){
+			int itemCount = model.getItemCount();
+		    for(int i=0;i<itemCount;i++){
+		        model.removeItemAt(0);
+		     }
 		}
 		
 		

@@ -131,10 +131,10 @@ public class Register extends JFrame {
 			}
 			
 		});
-		register.setBounds(60, 380, 200, 29);
+		register.setBounds(250, 380, 230, 29);
 		
 		JButton cancel = new JButton("cancel");
-		cancel.setBounds(300, 380, 117, 29);
+		cancel.setBounds(60, 380, 117, 29);
 		cancel.addActionListener(new ActionListener(){
 
 			@Override

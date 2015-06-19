@@ -319,7 +319,7 @@ public class AddVehicle extends JFrame {
  				
  			});
  			
- 			addVehicle.setBounds(60, 380, 200, 29);
+ 			addVehicle.setBounds(270, 380, 200, 29);
 			
 			contentPane.setLayout(null);
 			contentPane.add(label);
@@ -336,7 +336,7 @@ public class AddVehicle extends JFrame {
 			contentPane.add(addVehicle);
 			
 			JButton cancel = new JButton("cancel");
-			cancel.setBounds(300, 380, 117, 29);
+			cancel.setBounds(60, 380, 117, 29);
 			cancel.addActionListener(new ActionListener(){
 
 				//@Override

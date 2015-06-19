@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -50,34 +51,36 @@ public class Register extends JFrame {
 	public Register() {
 		setTitle("Register for the vehicle Insurance! ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		this.getContentPane().setLayout(null);
+		
 		JLabel firstNameLabel = new JLabel("First Name");
-		firstNameLabel.setBounds(25, 67, 68, 16);
+		firstNameLabel.setBounds(95, 120, 68, 16);
 		
 		JLabel lastNameLabel = new JLabel("Last Name");
-		lastNameLabel.setBounds(25, 27, 66, 16);
+		lastNameLabel.setBounds(95, 170, 66, 16);
 		
 		JLabel IdLabel = new JLabel("ID");
-		IdLabel.setBounds(25, 107, 34, 16);
+		IdLabel.setBounds(95, 220, 34, 16);
 		
 		//add scroll down panel for birthday
 		
-		
-		lastnameField = new JTextField();
-		lastnameField.setBounds(147, 21, 156, 28);
-		lastnameField.setColumns(10);
-		
 		firstnameField = new JTextField();
-		firstnameField.setBounds(147, 61, 156, 28);
+		firstnameField.setBounds(240, 115, 156, 28);
 		firstnameField.setColumns(10);
 		
+		lastnameField = new JTextField();
+		lastnameField.setBounds(240, 165, 156, 28);
+		lastnameField.setColumns(10);
+		
+		
 		IdField = new JTextField();
-		IdField.setBounds(147, 101, 156, 28);
+		IdField.setBounds(240, 215, 156, 28);
 		IdField.setColumns(10);
 		
 		JLabel label = new JLabel("");
@@ -128,10 +131,10 @@ public class Register extends JFrame {
 			}
 			
 		});
-		register.setBounds(41, 233, 117, 29);
+		register.setBounds(60, 380, 200, 29);
 		
 		JButton cancel = new JButton("cancel");
-		cancel.setBounds(186, 233, 117, 29);
+		cancel.setBounds(300, 380, 117, 29);
 		cancel.addActionListener(new ActionListener(){
 
 			@Override
@@ -149,29 +152,41 @@ public class Register extends JFrame {
 		contentPane.add(IdLabel);
 		contentPane.add(lastnameField);
 		contentPane.add(firstnameField);
+		contentPane.add(IdField);
 		contentPane.add(IdLabel);
 		contentPane.add(register);
 		contentPane.add(cancel);
 		
 		JLabel pwdLabel = new JLabel("password: ");
-		pwdLabel.setBounds(25, 147, 61, 16);
+		pwdLabel.setBounds(95, 270, 200, 16);
 		contentPane.add(pwdLabel);
 		
 		JLabel confirmPwdLabel = new JLabel("Confirm Password: ");
-		confirmPwdLabel.setBounds(25, 187, 116, 16);
+		confirmPwdLabel.setBounds(95, 320, 200, 16);
 		contentPane.add(confirmPwdLabel);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(147, 141, 156, 28);
+		passwordField.setBounds(240, 265, 156, 28);
 		contentPane.add(passwordField);
 		
+		
 		confirmPasswordField = new JPasswordField();
-		confirmPasswordField.setBounds(147, 181, 156, 28);
+		confirmPasswordField.setBounds(240, 315, 156, 28);
 		contentPane.add(confirmPasswordField);
+		
+		
+		JLabel imgLabe2 = new JLabel("");
+		imgLabe2.setIcon(new ImageIcon("image-header.jpeg"));
+		imgLabe2.setBounds(0, 0, 500, 95);
+		
+		contentPane.add(imgLabe2);
+		
 	}
 	
-	public void setVisible(boolean b) {
+	
+	
+	/*public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-	}
+	}*/
 
 }

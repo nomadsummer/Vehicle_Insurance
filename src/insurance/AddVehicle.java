@@ -1,8 +1,10 @@
 package insurance;
 
 import java.awt.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -28,6 +30,11 @@ import javax.swing.JComboBox;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.*;
 
 
@@ -112,6 +119,7 @@ public class AddVehicle extends JFrame {
 		    
 		    make=new JComboBox <String>();
 			make.setBounds(280, 130, 180, 100);
+			make.addItem(null);
 			make.addItem("Acura");
 			make.addItem("BMW");
 			make.addItem("Chevrolet");
@@ -132,15 +140,95 @@ public class AddVehicle extends JFrame {
 		    	public void itemStateChanged(ItemEvent ie){
 		    		 if(ie.getItem().equals("Acura")&&(ie.getStateChange()==1)){
 		    			 clearcombo(model);
-		    			 model.addItem("ILX");
-		    			 model.addItem("TLX");
-		    			 model.addItem("RLX");
+		    			 model.addItem("NSX");
+		    			 model.addItem("TL");
+		    			 model.addItem("TSX");
+		    			 model.addItem("RDX");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Audi")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("A4");
+		    			 model.addItem("A6");
+		    			 model.addItem("A7");
+		    			 model.addItem("Others");
 		    		 }
 		    		 else if(ie.getItem().equals("BMW")&&(ie.getStateChange()==1)){
 		    			 clearcombo(model);
-		    			 model.addItem("3 series");
-		    			 model.addItem("5 series");
-		    			 model.addItem("7 series");
+		    			 model.addItem("M3");
+		    			 model.addItem("M5");
+		    			 model.addItem("M7");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Chevrolet")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("Malibu");
+		    			 model.addItem("Spark");
+		    			 model.addItem("Volt");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Dodge")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("Caravan");
+		    			 model.addItem("Grand Caravan Blacktop");
+		    			 model.addItem("SRT Viper");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Ford")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("Falvon");
+		    			 model.addItem("Ka");
+		    			 model.addItem("Territory");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Honda")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("N-One");
+		    			 model.addItem("Ridgeline");
+		    			 model.addItem("ZEST");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Infiniti")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("RB10");
+		    			 model.addItem("Q40");
+		    			 model.addItem("G20");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Lexus")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("ES");
+		    			 model.addItem("GSh");
+		    			 model.addItem("RCF");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Mazda")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("RX-8");
+		    			 model.addItem("MX-5");
+		    			 model.addItem("CX-9");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Mercedes-Benz")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("E Class Wagon");
+		    			 model.addItem("GL Class SUV");
+		    			 model.addItem("S Class Coupe");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Nissan")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("GT-R");
+		    			 model.addItem("NPT-90");
+		    			 model.addItem("Skyline");
+		    			 model.addItem("Others");
+		    		 }
+		    		 else if(ie.getItem().equals("Toyota")&&(ie.getStateChange()==1)){
+		    			 clearcombo(model);
+		    			 model.addItem("Aygo");
+		    			 model.addItem("Belta");
+		    			 model.addItem("Mark X");
+		    			 model.addItem("Others");
 		    		 }
 		    		 else{
 		    			 clearcombo(model);
@@ -192,10 +280,12 @@ public class AddVehicle extends JFrame {
 			label.setBounds(141, 221, 0, 0);
 			
 			JButton addVehicle = new JButton("Add this vehicle");
-			addVehicle.addActionListener(new ActionListener(){
-				//@Override
-				public void actionPerformed(ActionEvent e) {
-					AddVehicle addVehicle = new AddVehicle();
+ 			addVehicle.addActionListener(new ActionListener(){
+
+ 				//@Override
+ 				public void actionPerformed(ActionEvent e) {
+ 					AddVehicle addVehicle = new AddVehicle();
+					AddVehicle.this.setVisible(true);
 					//AddVehicle.this.setVisible(true);
 					System.out.println(year.getSelectedItem());
 					System.out.println(make.getSelectedItem());
@@ -224,12 +314,12 @@ public class AddVehicle extends JFrame {
 					}
                     
 					addVehicle.setVisible(true);
-					
-				}
-				
-			});
-			
-			addVehicle.setBounds(60, 380, 200, 29);
+ 					
+ 				}
+ 				
+ 			});
+ 			
+ 			addVehicle.setBounds(60, 380, 200, 29);
 			
 			contentPane.setLayout(null);
 			contentPane.add(label);
@@ -262,7 +352,7 @@ public class AddVehicle extends JFrame {
 			
 			
 			JLabel imgLabe2 = new JLabel("");
-			imgLabe2.setIcon(new ImageIcon("//Users/apple/Desktop/image-header.jpeg"));
+			imgLabe2.setIcon(new ImageIcon("image-header.jpeg"));
 			imgLabe2.setBounds(0, 0, 500, 95);
 			
 			contentPane.add(imgLabe2);

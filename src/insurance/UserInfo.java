@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -63,7 +64,7 @@ public class UserInfo extends JFrame {
 	public UserInfo() {
 		setTitle("Enter your basic information ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -72,49 +73,52 @@ public class UserInfo extends JFrame {
 		
 		//Font f =new Font("Verdana",Font.BOLD,13);
 		
+		
+		this.getContentPane().setLayout(null);
+		
 		JLabel street = new JLabel("Street");
-		street.setBounds(25, 67, 68, 16);
+		street.setBounds(50, 120, 68, 16);
 		//street.setFont(f);
 		contentPane.add(street);
 		
 		JLabel apt = new JLabel("Apt/Suite");
-		apt.setBounds(70, 67, 66, 16);
+		apt.setBounds(50, 170, 68, 16);
 		contentPane.add(apt);
 	
 		JLabel city = new JLabel("City");
-		city.setBounds(25, 107, 34, 16);
+		city.setBounds(280, 170, 50, 16);
 		contentPane.add(city);
 		
 		JLabel state = new JLabel("State");
-		state.setBounds(70,107,20,16);
+		state.setBounds(50,220,40,16);
 		contentPane.add(state);
 		
 		JLabel zip = new JLabel("Zip");
-		zip.setBounds(90,107,20,16);
+		zip.setBounds(280,220,20,16);
 		contentPane.add(zip);
 		
 		streetAddrField = new JTextField();
-		streetAddrField.setBounds(147, 21, 156, 28);
+		streetAddrField.setBounds(140, 115, 300, 28);
 		streetAddrField.setColumns(20);
 		contentPane.add(streetAddrField);
 		
 		aptField = new JTextField();
-		aptField.setBounds(210, 21, 156, 28);
+		aptField.setBounds(140, 165, 120, 28);
 		aptField.setColumns(20);
 		contentPane.add(aptField);
 		
 		cityField=new JTextField();
-		cityField.setBounds(147,61,156,28);
+		cityField.setBounds(320, 165, 120, 28);
 		cityField.setColumns(20);
 		contentPane.add(cityField);
 		
 		
 		stateBox = new JComboBox<String>(stateName);
-		stateBox.setBounds(190,61,158,28);
+		stateBox.setBounds(140,215,120,28);
 		contentPane.add(stateBox);
 		
 		zipCodeField = new JTextField();
-		zipCodeField.setBounds(210,61,158,28);
+		zipCodeField.setBounds(320,215,120,28);
 		zipCodeField.setColumns(20);
 		contentPane.add(zipCodeField);
 		
@@ -133,7 +137,7 @@ public class UserInfo extends JFrame {
 		//add(stateBox);
 		
 		save = new JButton("Save and Continue");
-		save.setBounds(40,80,60,25);
+		save.setBounds(260, 420, 200, 29);
 		save.addActionListener(new ActionListener(){
 
 			@Override
@@ -164,7 +168,7 @@ public class UserInfo extends JFrame {
 		contentPane.add(save);
 		
 		JButton cancel = new JButton("cancel");
-		cancel.setBounds(300, 380, 117, 29);
+		cancel.setBounds(70, 420, 117, 29);
 		cancel.addActionListener(new ActionListener(){
 
 			//@Override
@@ -177,6 +181,20 @@ public class UserInfo extends JFrame {
 		});
 		contentPane.add(cancel);
 		
+		
+		JLabel imgLabe2 = new JLabel("");
+		imgLabe2.setIcon(new ImageIcon("image-header.jpeg"));
+		imgLabe2.setBounds(0, 0, 500, 95);
+		
+		contentPane.add(imgLabe2);
+	}
+	public void clearcombo(JComboBox model){
+		int itemCount = model.getItemCount();
+	    for(int i=0;i<itemCount;i++){
+	        model.removeItemAt(0);
+	     }
+	}
+	
+		
 	}
 
-}

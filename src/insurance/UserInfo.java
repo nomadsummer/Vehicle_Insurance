@@ -153,6 +153,9 @@ public class UserInfo extends JFrame {
 							+ "State: "+ stateBox.getSelectedItem() + '\n'
 							+"zip code: " + zipCodeField.getText() + '\n');
 					bw.close();
+					UserInfo.this.setVisible(false);
+					AddVehicle av = new AddVehicle();
+					av.setVisible(true);
 				}catch (FileNotFoundException e1)
 				{
 					e1.printStackTrace();

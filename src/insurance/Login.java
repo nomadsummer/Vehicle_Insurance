@@ -46,33 +46,38 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		
+		
 		setTitle("Vehicle Insurance");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		this.getContentPane().setLayout(null);
+		
+		
 		//user password field
 		password = new JPasswordField();
-		password.setBounds(89, 225, 141, 28);
+		password.setBounds(220, 320, 141, 28);
 		contentPane.add(password);
 		
 		//user id field
 		userid = new JTextField();
-		userid.setBounds(89,176,141,28);
+		userid.setBounds(220,270,141,28);
 		contentPane.add(userid);
 		userid.setColumns(20);
 		
 		JLabel userLabel = new JLabel("User Id:");
 		userLabel.setFont(new Font("Constantia", Font.BOLD,15));
-		userLabel.setBounds(16,182, 61, 16);
+		userLabel.setBounds(120,275, 61, 16);
 		contentPane.add(userLabel);
 		
 		JLabel pwdLabel = new JLabel("Password:");
 		pwdLabel.setFont(new Font("Constantia", Font.BOLD, 15));
-		pwdLabel.setBounds(16, 231, 81, 16);
+		pwdLabel.setBounds(120, 325, 81, 16);
 		contentPane.add(pwdLabel);
 		
 		//log in
@@ -110,7 +115,7 @@ public class Login extends JFrame {
 			}
 		});
 		
-		login.setBounds(16, 299, 71, 29);
+		login.setBounds(80, 400, 71, 29);
 		contentPane.add(login);
 		
 		//exit the desktop application
@@ -124,7 +129,7 @@ public class Login extends JFrame {
 			}
 		});
 		
-		exit.setBounds(176, 299, 71, 29);
+		exit.setBounds(350, 400, 71, 29);
 		contentPane.add(exit);
 		
 		//register for the application
@@ -140,12 +145,15 @@ public class Login extends JFrame {
 			}
 		});
 		
-		register.setBounds(89, 299, 83, 29);
+		register.setBounds(210, 400, 83, 29);
 		contentPane.add(register);
 		
 		JLabel imgLabel = new JLabel("");
-		imgLabel.setIcon(new ImageIcon("/User/Summer/Documents/workspace/vehicleInsurance/image/carInsurance.jpg"));
-		imgLabel.setBounds(30, 11, 200, 154);
+		imgLabel.setIcon(new ImageIcon("images.jpeg"));
+		imgLabel.setBounds(120, 0, 300, 300);
+		//imgLabel.setLocation(50, 50);
+		//imgLabel.setHorizontalAlignment(JLabel.CENTER);
+		
 		contentPane.add(imgLabel);
 	}
 

@@ -1,0 +1,30 @@
+package rules;
+
+import insurance.Violation;
+
+  rule "Violation0"
+     when
+          $m:Violation(violationtime<1)
+     then
+          System.out.println("1.00!");
+  end
+  rule "Violation1"
+     when
+          $m:Violation(violationtime==1)
+     then
+          System.out.println("1.05!");
+  end
+  rule "Violation2"
+     when
+          $m:Violation(violationtime==2)
+     then
+          System.out.println("1.1!");
+  end
+  rule "Violation3"
+     when
+          $m:Violation(violationtime>2)
+     then
+          System.out.println("1.15!");
+  end
+  
+

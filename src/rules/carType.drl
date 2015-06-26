@@ -1,0 +1,132 @@
+//created on: Jun 25, 2015
+package rules
+
+//list any import classes here.
+import insurance.AddVehicle;
+import resource.Quota;
+
+//declare any global variables here
+global org.slf4j.Logger logger;
+
+dialect "mvel"
+
+
+rule "Car Brand Acura"
+    when 
+        //conditions
+        $q:Quota(carType == "Acura")
+    then
+        //actions
+        $q.setCarTypeFactor(2.4);
+        logger.info("\t==> Executing RULE 'Car Brand Acura have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Audi"
+    when 
+        //conditions
+        $q:Quota(carType == "Audi")
+    then
+        //actions
+        $q.setCarTypeFactor(2.2);
+        logger.info("\t==> Executing RULE 'Car Brand Audi have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand BMW"
+    when 
+        //conditions
+        $q:Quota(carType == "BMW")
+    then
+        //actions
+        $q.setCarTypeFactor(2.6);
+        logger.info("\t==> Executing RULE 'Car Brand BMW have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Chevorlet"
+    when 
+        //conditions
+        $q:Quota(carType == "Chevorlet")
+    then
+        //actions
+        $q.setCarTypeFactor(1.2);
+        logger.info("\t==> Executing RULE 'Car Brand Chevorlet have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Dodge"
+    when 
+        //conditions
+        $q:Quota(carType == "Dodge")
+    then
+        //actions
+        $q.setCarTypeFactor(1.3);
+        logger.info("\t==> Executing RULE 'Car Brand Dodge have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Ford"
+    when 
+        //conditions
+        $q:Quota(carType == "Ford")
+    then
+        //actions
+        $q.setCarTypeFactor(1.1);
+        logger.info("\t==> Executing RULE 'Car Brand Ford have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Honda"
+    when 
+        //conditions
+        $q:Quota(carType == "Honda")
+    then
+        //actions
+        $q.setCarTypeFactor(1.4);
+        logger.info("\t==> Executing RULE 'Car Brand Honda have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Infinity"
+    when 
+        //conditions
+        $q:Quota(carType == "Infinity")
+    then
+        //actions
+        $q.setCarTypeFactor(2.1);
+        logger.info("\t==> Executing RULE 'Car Brand Infinity have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Lexus"
+    when 
+        //conditions
+        $q:Quota(carType == "Lexus")
+    then
+        //actions
+        $q.setCarTypeFactor(2.2);
+        logger.info("\t==> Executing RULE 'Car Brand Lexus have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Mazda"
+    when 
+        //conditions
+        $q:Quota(carType== "Mazda")
+    then
+        //actions
+        $q.setCarTypeFactor(1.0);
+        logger.info("\t==> Executing RULE 'Car Brand Mazda have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Nissan"
+    when 
+        //conditions
+        $q:Quota(carType == "Nissan")
+    then
+        //actions
+        $q.setCarTypeFactor(1.4);
+        logger.info("\t==> Executing RULE 'Car Brand Nissan have no car type factor' for Object: " + $q);
+end
+
+rule "Car Brand Toyota"
+    when 
+        //conditions
+        $q:Quota(carType == "Toyota")
+    then
+        //actions
+        $q.setCarTypeFactor(1.5);
+        logger.info("\t==> Executing RULE 'Car Brand Toyota have no car type factor' for Object: " + $q);
+end

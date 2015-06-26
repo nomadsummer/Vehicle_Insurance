@@ -1,8 +1,5 @@
 package insurance;
 
-import java.awt.*;
-
-import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.BorderLayout;
@@ -12,30 +9,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+
 
 
 
 import javax.swing.JComboBox;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.lang.*;
+
 
 
 public class AddVehicle extends JFrame {
@@ -44,9 +38,9 @@ public class AddVehicle extends JFrame {
 		private JPanel contentPane;
 		private JTextField vinField;
 		private JComboBox <String> year;
-		private JComboBox make;
-		private JComboBox model;
-		private JComboBox bodyStyle;
+		private JComboBox<String> make;
+		private JComboBox<String> model;
+		private JComboBox<String> bodyStyle;
 		//JComboBoxDemo example=new JComboBoxDemo();
 		
 
@@ -63,11 +57,7 @@ public class AddVehicle extends JFrame {
 						e.printStackTrace();
 					}
 				}
-			});
-			
-			
-			
-			
+			});			
 		}
 
 		/**
@@ -237,9 +227,6 @@ public class AddVehicle extends JFrame {
 		    });
 		    contentPane.add(model);
 		    
-		    
-		    
-		    
 		    bodyStyle=new JComboBox <String>();
 		    bodyStyle.setBounds(280, 230, 180, 100);
 		    bodyStyle.addItem("Convertible");
@@ -253,7 +240,6 @@ public class AddVehicle extends JFrame {
 		    bodyStyle.addItem("Wagon");
 		    contentPane.add(bodyStyle);
 		    
-			
 			JLabel makeLabel = new JLabel("Make");
 			makeLabel.setBounds(30, 170, 66, 16);
 			
@@ -270,7 +256,6 @@ public class AddVehicle extends JFrame {
 			apply.setBounds(280, 340, 250, 16);
 			apply.setForeground(Color.red);
 			apply.setFont(new   java.awt.Font("Dialog",   0,   10));   
-			
 			
 			vinField = new JTextField();
 			vinField.setBounds(280, 315, 180, 28);
@@ -289,7 +274,7 @@ public class AddVehicle extends JFrame {
 					//AddVehicle.this.setVisible(true);
 					System.out.println(year.getSelectedItem());
 					System.out.println(make.getSelectedItem());
-                                        System.out.println(model.getSelectedItem());
+                    System.out.println(model.getSelectedItem());
                                         
 					try {
 						PrintWriter writer;
@@ -312,9 +297,7 @@ public class AddVehicle extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-                    
 					addVehicle.setVisible(true);
- 					
  				}
  				
  			});
@@ -329,12 +312,11 @@ public class AddVehicle extends JFrame {
 			contentPane.add(bodyStyleLabel);
 			contentPane.add(vinLabel);
 			contentPane.add(apply);
-			
-			
+
 			contentPane.add(vinField);
 			
 			contentPane.add(addVehicle);
-			
+
 			JButton cancel = new JButton("cancel");
 			cancel.setBounds(60, 380, 117, 29);
 			cancel.addActionListener(new ActionListener(){
@@ -350,19 +332,17 @@ public class AddVehicle extends JFrame {
 			
 			contentPane.add(cancel);
 			
-			
 			JLabel imgLabe2 = new JLabel("");
 			imgLabe2.setIcon(new ImageIcon("image-header.jpeg"));
 			imgLabe2.setBounds(0, 0, 500, 95);
 			
 			contentPane.add(imgLabe2);
 		}
-		public void clearcombo(JComboBox model){
+		public void clearcombo(JComboBox<String> model){
 			int itemCount = model.getItemCount();
 		    for(int i=0;i<itemCount;i++){
 		        model.removeItemAt(0);
 		     }
 		}
-		
-		
+
 	}

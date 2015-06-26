@@ -66,6 +66,7 @@ public class Register extends JFrame {
 		lastNameLabel.setBounds(95, 170, 66, 16);
 		
 		JLabel IdLabel = new JLabel("ID");
+
 		IdLabel.setBounds(95, 220, 34, 16);
 		
 		//add scroll down panel for birthday
@@ -74,6 +75,9 @@ public class Register extends JFrame {
 		firstnameField.setBounds(240, 115, 156, 28);
 		firstnameField.setColumns(10);
 		
+
+		IdLabel.setBounds(25, 107, 34, 16);
+
 		lastnameField = new JTextField();
 		lastnameField.setBounds(240, 165, 156, 28);
 		lastnameField.setColumns(10);
@@ -106,12 +110,12 @@ public class Register extends JFrame {
 				}
 				try{
 					if(newUser.checkUser()){
-						tips duplicateUser = new tips("the user has already registered! ");
+						Tips duplicateUser = new Tips("the user has already registered! ");
 						duplicateUser.setVisible(true);
 					}
 					if(!newUser.checkUser()){
 						newUser.Register();
-						tips welcomeInfo = new tips("welcome to our the vehicle insurance! ");
+						Tips welcomeInfo = new Tips("welcome to our the vehicle insurance! ");
 						welcomeInfo.setVisible(true);
 						vehicleInsurance.createUser(newUser.getId(),newUser.getPassword());
 						ControlPanel cp = new ControlPanel(newUser);
@@ -125,7 +129,7 @@ public class Register extends JFrame {
 					ex.printStackTrace();
 				}
 				if(!pwd.equals(confirmPwd)){
-					tips nonMatchPwd = new tips("the password does not match! ");
+					Tips nonMatchPwd = new Tips("the password does not match! ");
 					nonMatchPwd.setVisible(true);
 				}
 			}
@@ -182,8 +186,6 @@ public class Register extends JFrame {
 		contentPane.add(imgLabe2);
 		
 	}
-	
-	
 	
 	/*public void setVisible(boolean b) {
 		// TODO Auto-generated method stub

@@ -29,7 +29,7 @@ public class Login extends JFrame {
 	 */
 	public static void main(String[] args) {
 		//download insurance information from stored files
-		VehicleInsurance.downloadFile();
+			//VehicleInsurance.downloadFile();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -93,7 +93,7 @@ public class Login extends JFrame {
 				User user = new User();
 				user.setId(id);
 				user.setPassword(password);
-				user.DownloadFile();
+				//user.DownloadFile();
 				
 				try{
 					if(user.checkUser() && user.checkPassword()){
@@ -102,11 +102,11 @@ public class Login extends JFrame {
 						Login.this.dispose();
 					}
 					if(!user.checkUser()){
-						tips noUser = new tips("This user does not exist! Please try another! ");
+						Tips noUser = new Tips("This user does not exist! Please try another! ");
 						noUser.setVisible(true);
 					}
 					if(user.checkUser() && !user.checkPassword()){
-						tips wrongPwd = new tips("The password does not match existing user name, please try again! ");
+						Tips wrongPwd = new Tips("The password does not match existing user name, please try again! ");
 						wrongPwd.setVisible(true);
 					}		
 				} catch(Exception e){

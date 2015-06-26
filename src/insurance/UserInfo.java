@@ -163,7 +163,7 @@ public class UserInfo extends JFrame {
 		contentPane.add(female);
 		contentPane.add(male);
 		
-		/*female.addItemListener(new ItemListener(){
+		female.addItemListener(new ItemListener(){
 
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -210,7 +210,7 @@ public class UserInfo extends JFrame {
 				}
 			}
 			
-		});*/
+		});
 		
 		JLabel violation = new JLabel("Violation History");
 		violation.setBounds(50, 330, 80, 30);
@@ -290,6 +290,5 @@ public class UserInfo extends JFrame {
 	        model.removeItemAt(0);
 	     }
 	}
-	
-		
 	}
+
